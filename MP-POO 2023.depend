@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1682117934 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.cpp
+	<iostream>
+	<sstream>
+	"date.h"
+
+1682117826 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.h
+	<string>
+

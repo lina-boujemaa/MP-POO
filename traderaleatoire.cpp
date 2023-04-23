@@ -8,7 +8,7 @@ class TraderAleatoire : public Trader {
 public:
     TraderAleatoire(double soldeInitial);
 
-    virtual Transaction choisirTransaction(const Bourse& bourse, const Portefeuille &portefeuille) override;
+    virtual Transaction choisirTransaction(const Bourse& bourse, const Portefeuille &portefeuille);
 
 private:
     double m_soldeInitial;
@@ -24,30 +24,24 @@ TraderAleatoire::TraderAleatoire(double soldeInitial)
 Transaction TraderAleatoire::choisirTransaction(const Bourse& bourse, const Portefeuille& portefeuille)
 {
     if (m_transactionsParJour >= 100) {
-        return Transaction::Neutre;
+        return Transaction::RIEN;
     }
 
     if (portefeuille.actions().empty()) {
-        return Transaction::Achat;
+        return Transaction::ACHAT;
     }
 
     auto actionsDisponibles = bourse.actionsDisponibles(m_soldeInitial);
 
     if (actionsDisponibles.empty()) {
-        return Transaction::Neutre;
+        return Transaction::RIEN;
     }
 
-    auto actionIndex = std::rand() % actionsDisponibles.size();
-    auto action = actionsDisponibles[actionIndex];
 
-    auto prix = bourse.cours(action).dernier();
 
-    if (portefeuille.contains(action)) {
         if (std::rand() % 2 == 0) {
             return Transaction::Vente;
-        } else {
-            return Transaction::Neutre;
-        }
+
     } else {
         if (m_soldeInitial >= prix) {
             return Transaction::Achat;

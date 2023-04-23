@@ -4,7 +4,7 @@
 #include "Bourse.h"
 #include "Portefeuille.h"
 
-enum class TypeTransaction { ACHAT, VENTE, ATTENTE };
+enum class TypeTransaction { ACHAT, VENTE, RIEN };
 
 class Transaction {
 public:

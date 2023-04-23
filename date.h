@@ -18,5 +18,9 @@ private:
 };
 std::ostream& operator<<(std::ostream& os, const Date& date);
 std::istream& operator>>(std::istream& is, Date& date);
+int Date::joursDansMois(int mois, int annee);
+bool Date::estBissextile(int annee);
+void Date::incrementer();
+int Date::joursDansMois(int mois, int annee);
 
 #endif

@@ -32,7 +32,20 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="bourse.cpp" />
+		<Unit filename="bourse.h" />
+		<Unit filename="date.cpp" />
+		<Unit filename="date.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="portefeuille.cpp" />
+		<Unit filename="portefeuille.h" />
+		<Unit filename="prixjournalier.cpp" />
+		<Unit filename="prixjournalier.h" />
+		<Unit filename="simulation.cpp" />
+		<Unit filename="simulation.h" />
+		<Unit filename="trader.cpp" />
+		<Unit filename="trader.h" />
+		<Unit filename="traderaleatoire.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

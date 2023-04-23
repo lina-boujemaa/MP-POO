@@ -1,25 +1,25 @@
 #include "simulation.h"
 
 void Simulation::executer(Bourse& bourse, Trader& trader, Date dateDebut, Date dateFin, double solde) {
-    // initialize the trader's portfolio with the initial balance
-    Portefeuille portefeuille(solde);
+Portefeuille portefeuille(solde);
+Date date = dateDebut;
+int nbTransactions = 0;
+while (date <= dateFin) {
+    std::vector<Action*> actions = bourse.getActionsDisponibles(date, portefeuille.getSolde());
 
-    // simulate the trading days
-    Date date = dateDebut;
-    while (date <= dateFin) {
-        // get the available actions for the trader
-        std::vector<Action*> actions = bourse.getActionsDisponibles(date, portefeuille.getSolde());
 
-        // let the trader choose a transaction
+    if (nbTransactions < 100) {
         Transaction transaction = trader.choisirTransaction(bourse, portefeuille, actions, date);
 
-        // execute the transaction
         portefeuille.executerTransaction(transaction, bourse, date);
 
-        // move to the next trading day
-        date = date.addJours(1);
+        nbTransactions++;
     }
 
-    // update the trader's portfolio
-    trader.setPortefeuille(portefeuille);
+    date = date.incrementer();
+
+    nbTransactions = 0;
+}
+
+trader.setPortefeuille(portefeuille);
 }

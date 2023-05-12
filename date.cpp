@@ -1,41 +1,40 @@
 #include "date.h"
 
 Date::Date(int jour, int mois, int annee)
-    : m_jour(jour), m_mois(mois), m_annee(annee)
+    : jour(jour), mois(mois), annee(annee)
 {
 }
 
 int Date::getJour() const
 {
-    return m_jour;
+    return jour;
 }
 
 int Date::getMois() const
 {
-    return m_mois;
+    return mois;
 }
 
 int Date::getAnnee() const
 {
-    return m_annee;
+    return  annee;
 }
 
 bool Date::operator==(const Date& autre) const
 {
-    return m_jour == autre.m_jour && m_mois == autre.m_mois && m_annee == autre.m_annee;
+    return jour == autre.jour && mois == autre.mois && annee == autre.annee;
 }
 
 std::ostream& operator<<(std::ostream& os, const Date& date)
 {
-    os << date.m_jour << "/" << date.m_mois << "/" << date.m_annee;
+    os << date.jour << "/" << date.mois << "/" << date.annee;
     return os;
 }
-
 
 std::istream& operator>>(std::istream& is, Date& date)
 {
     char sep1, sep2;
-    is >> date.m_jour >> sep1 >> date.m_mois >> sep2 >> date.m_annee;
+    is >> date.jour >> sep1 >> date.mois >> sep2 >> date.annee;
     if (sep1 != '/' || sep2 != '/') {
         is.setstate(std::ios::failbit);
     }
@@ -44,22 +43,24 @@ std::istream& operator>>(std::istream& is, Date& date)
 
 void Date::incrementer()
 {
-    int max_jour = joursDansMois(m_mois, m_annee);
+    int maxi = joursDansMois(mois, annee);
 
-    if (m_jour < max_jour) {
-        ++m_jour;
+    if (jour < maxi) {
+        ++jour;
     }
     else {
-        m_jour = 1;
-        if (m_mois < 12) {
-            ++m_mois;
+        jour = 1;
+        if (mois < 12) {
+            ++mois;
         }
         else {
-            m_mois = 1;
-            ++m_annee;
+            mois = 1;
+            ++annee;
         }
     }
 }
+
+
 bool Date::estBissextile(int annee)
 {
     return (annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0);
@@ -83,5 +84,3 @@ int Date::joursDansMois(int mois, int annee)
 
     return jours;
 }
-
-

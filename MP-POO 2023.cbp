@@ -34,9 +34,17 @@
 		</Compiler>
 		<Unit filename="bourse.cpp" />
 		<Unit filename="bourse.h" />
+		<Unit filename="boursemultimap.h" />
+		<Unit filename="bourseset.cpp" />
+		<Unit filename="bourseset.h" />
+		<Unit filename="boursevecteur.h" />
+		<Unit filename="bousemultimap.cpp" />
 		<Unit filename="date.cpp" />
 		<Unit filename="date.h" />
+		<Unit filename="main 2.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="persistanceprixjournalier.cpp" />
+		<Unit filename="persistanceprixjournalier.h" />
 		<Unit filename="portefeuille.cpp" />
 		<Unit filename="portefeuille.h" />
 		<Unit filename="prixjournalier.cpp" />
@@ -46,10 +54,12 @@
 		<Unit filename="trader.cpp" />
 		<Unit filename="trader.h" />
 		<Unit filename="traderaleatoire.cpp" />
+		<Unit filename="traderaleatoire.h" />
+		<Unit filename="traderalgorithmique.cpp" />
+		<Unit filename="traderalgorithmique.h" />
+		<Unit filename="transaction.cpp" />
+		<Unit filename="transaction.h" />
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>

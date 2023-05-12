@@ -1,9 +1,34 @@
 # depslib dependency file v1.0
-1682117934 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.cpp
-	<iostream>
-	<sstream>
+1683848855 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.cpp
 	"date.h"
 
-1682117826 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.h
+1683848783 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.h
+	<iostream>
 	<string>
+
+1683838125 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.cpp
+	"PrixJournalier.h"
+
+1683923483 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.h
+	"Date.h"
+	<string>
+
+1683847832 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\portefeuille.cpp
+	"portefeuille.h"
+
+1683923531 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\portefeuille.h
+	<map>
+	<string>
+
+1683849083 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bourse.cpp
+	"boursevecteur.h"
+	<algorithm>
+
+1683835444 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\boursevecteur.h
+	"Bourse.h"
+
+1683835266 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bourse.h
+	<vector>
+	<string>
+	"PrixJournalier.h"
 

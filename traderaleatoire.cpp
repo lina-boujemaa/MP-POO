@@ -3,50 +3,55 @@
 #include "portefeuille.h"
 #include <cstdlib>
 #include <ctime>
+#include <string>
 
 class TraderAleatoire : public Trader {
 public:
     TraderAleatoire(double soldeInitial);
 
-    virtual Transaction choisirTransaction(const Bourse& bourse, const Portefeuille &portefeuille);
+    Transaction choisirTransaction(const Bourse& bourse, const Portefeuille& portefeuille) override;
 
 private:
-    double m_soldeInitial;
-    int m_transactionsParJour;
+    double soldeInitial;
+    int transactionsParJour;
 };
 
 TraderAleatoire::TraderAleatoire(double soldeInitial)
-    : m_soldeInitial(soldeInitial), m_transactionsParJour(0)
+    : soldeInitial(soldeInitial), transactionsParJour(0)
 {
-    std::srand(std::time(nullptr));
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
 }
 
 Transaction TraderAleatoire::choisirTransaction(const Bourse& bourse, const Portefeuille& portefeuille)
 {
-    if (m_transactionsParJour >= 100) {
-        return Transaction::RIEN;
+    if (transactionsParJour >= 100) {
+        return Transaction(TypeTransaction::RIEN, "", 0.0, 0);
     }
 
-    if (portefeuille.actions().empty()) {
-        return Transaction::ACHAT;
-    }
-
-    auto actionsDisponibles = bourse.actionsDisponibles(m_soldeInitial);
-
-    if (actionsDisponibles.empty()) {
-        return Transaction::RIEN;
-    }
-
-
-
-        if (std::rand() % 2 == 0) {
-            return Transaction::Vente;
-
+    if (portefeuille.getActions().empty()) {
+        auto actionsDisponibles = bourse.getActionsDisponiblesParDate(bourse.getAujourdhui());
+        if (actionsDisponibles.empty()) {
+            return Transaction(TypeTransaction::RIEN, "", 0.0, 0);
+        }
+        int randomIndex = std::rand() % actionsDisponibles.size();
+        std::string action = actionsDisponibles[randomIndex];
+        double prix = bourse.getPrixActionParDate(action, bourse.getAujourdhui())->getPrix();
+        int quantite = static_cast<int>(portefeuille.getSolde() / prix);
+        return Transaction(TypeTransaction::ACHAT, action, prix, quantite);
     } else {
-        if (m_soldeInitial >= prix) {
-            return Transaction::Achat;
+        auto actions = portefeuille.getActions();
+        int randomIndex = std::rand() % actions.size();
+        std::string action = actions[randomIndex]->getNom();
+        double prix = bourse.getPrixActionParDate(action, bourse.getAujourdhui())->getPrix();
+        int quantite = portefeuille.getQuantite(action);
+        if (std::rand() % 2 == 0) {
+            return Transaction(TypeTransaction::VENTE, action, prix, quantite);
         } else {
-            return Transaction::Neutre;
+            if (portefeuille.getSolde() >= prix) {
+                return Transaction(TypeTransaction::ACHAT, action, prix, quantite);
+            } else {
+                return Transaction(TypeTransaction::RIEN, "", 0.0, 0);
+            }
         }
     }
 }

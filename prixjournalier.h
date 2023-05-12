@@ -1,8 +1,8 @@
 #ifndef PRIXJOURNALIER_H
 #define PRIXJOURNALIER_H
 
+#include "Date.h"
 #include <string>
-#include "date.h"
 
 class PrixJournalier {
 public:
@@ -13,9 +13,9 @@ public:
     double getPrix() const;
 
 private:
-    std::string m_nomAction;
-    Date m_date;
-    double m_prix;
+    std::string nomAction;
+    Date date;
+    double prix;
 };
 
-#endif
+#endif // PRIXJOURNALIER_H

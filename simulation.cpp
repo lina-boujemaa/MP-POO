@@ -1,25 +1,51 @@
-#include "simulation.h"
+#include "bourse.h"
+#include "trader.h"
+#include "portefeuille.h"
+#include "date.h"
+#include <map>
 
-void Simulation::executer(Bourse& bourse, Trader& trader, Date dateDebut, Date dateFin, double solde) {
-Portefeuille portefeuille(solde);
-Date date = dateDebut;
-int nbTransactions = 0;
-while (date <= dateFin) {
-    std::vector<Action*> actions = bourse.getActionsDisponibles(date, portefeuille.getSolde());
+class Simulation {
+public:
+    static std::map<std::string, long> executer(Bourse& bourse, Trader& trader, Date dateDebut, Date dateFin, double solde);
 
+private:
+    static void executer(Bourse& bourse, Trader& trader, Portefeuille& portefeuille, Date dateDebut, Date dateFin, double solde);
+};
 
-    if (nbTransactions < 100) {
-        Transaction transaction = trader.choisirTransaction(bourse, portefeuille, actions, date);
+std::map<std::string, long> Simulation::executer(Bourse& bourse, Trader& trader, Date dateDebut, Date dateFin, double solde) {
+    Portefeuille portefeuille;
+    portefeuille.setSolde(solde);
 
-        portefeuille.executerTransaction(transaction, bourse, date);
+    executer(bourse, trader, portefeuille, dateDebut, dateFin, solde);
 
-        nbTransactions++;
+    std::map<std::string, long> result;
+    for (const auto& action : portefeuille.getActions()) {
+        result[action->getNom()] = action->getQuantite();
     }
-
-    date = date.incrementer();
-
-    nbTransactions = 0;
+    return result;
 }
 
-trader.setPortefeuille(portefeuille);
+void Simulation::executer(Bourse& bourse, Trader& trader, Portefeuille& portefeuille, Date dateDebut, Date dateFin, double solde) {
+    portefeuille.setSolde(solde);
+    portefeuille.viderActions();
+
+    Date currentDate = dateDebut;
+    int nbTransactions = 0;
+
+    while (currentDate <= dateFin) {
+        std::vector<Action*> actions = bourse.getActionsDisponibles(currentDate, portefeuille.getSolde());
+
+        if (nbTransactions < 100) {
+            Transaction transaction = trader.choisirTransaction(bourse, portefeuille, actions, currentDate);
+
+            portefeuille.executerTransaction(transaction, bourse, currentDate);
+
+            nbTransactions++;
+        }
+
+        currentDate = currentDate.suivant();
+        nbTransactions = 0;
+    }
+
+    trader.setPortefeuille(portefeuille);
 }

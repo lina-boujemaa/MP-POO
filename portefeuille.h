@@ -1,23 +1,23 @@
 #ifndef PORTEFEUILLE_H
 #define PORTEFEUILLE_H
 
-#include <vector>
-#include "action.h"
+#include <map>
+#include <string>
 
 class Portefeuille {
 public:
     Portefeuille();
-    void acheter(Action* action, double prix, int quantite);
-    void vendre(Action* action, double prix, int quantite);
-    double getSolde() const;
     void setSolde(double solde);
-    std::vector<Action*>& getActions();
-    const std::vector<Action*>& getActions() const;
-    bool operator==(const Portefeuille& autre) const;
+    double getSolde() const;
+    void viderActions();
+    void acheter(const std::string& nomAction, double prix, int quantite);
+    void vendre(const std::string& nomAction, double prix, int quantite);
+    int getQuantite(const std::string& nomAction) const;
+    std::map<std::string, int> getActions() const;
 
 private:
-    std::vector<Action*> m_actions;
-    double m_solde;
+    double solde;
+    std::map<std::string, int> actions;
 };
 
 #endif // PORTEFEUILLE_H

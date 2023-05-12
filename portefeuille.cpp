@@ -1,35 +1,46 @@
 #include "portefeuille.h"
-#include <algorithm>
 
-void Portefeuille::ajouterAction(Action action, int quantite) {
-    auto it = std::find_if(m_actions.begin(), m_actions.end(), [action](const ActionQuantite& aq) { return aq.action == action; });
-    if (it != m_actions.end()) {
-        it->quantite += quantite;
-    } else {
-        m_actions.push_back(ActionQuantite{action, quantite});
+Portefeuille::Portefeuille() : solde(0.0) {}
+
+void Portefeuille::setSolde(double solde) {
+    this->solde = solde;
+}
+
+double Portefeuille::getSolde() const {
+    return solde;
+}
+
+void Portefeuille::viderActions() {
+    actions.clear();
+}
+
+void Portefeuille::acheter(const std::string& nomAction, double prix, int quantite) {
+    if (quantite > 0) {
+        solde -= prix * quantite;
+        actions[nomAction] += quantite;
     }
 }
 
-void Portefeuille::retirerAction(Action action, int quantite) {
-    auto it = std::find_if(m_actions.begin(), m_actions.end(), [action](const ActionQuantite& aq) { return aq.action == action; });
-    if (it != m_actions.end()) {
-        it->quantite -= quantite;
-        if (it->quantite <= 0) {
-            m_actions.erase(it);
+void Portefeuille::vendre(const std::string& nomAction, double prix, int quantite) {
+    if (quantite > 0 && actions.count(nomAction) > 0) {
+        int& quantiteActuelle = actions[nomAction];
+        if (quantite <= quantiteActuelle) {
+            solde += prix * quantite;
+            quantiteActuelle -= quantite;
+            if (quantiteActuelle == 0) {
+                actions.erase(nomAction);
+            }
         }
     }
 }
 
-int Portefeuille::getQuantite(Action action) const {
-    auto it = std::find_if(m_actions.begin(), m_actions.end(), [action](const ActionQuantite& aq) { return aq.action == action; });
-    return (it != m_actions.end()) ? it->quantite : 0;
+int Portefeuille::getQuantite(const std::string& nomAction) const {
+    if (actions.count(nomAction) > 0) {
+        return actions.at(nomAction);
+    }
+    return 0;
 }
 
-double Portefeuille::getValeur(const Bourse& bourse) const {
-    double valeur = 0.0;
-    for (const auto& aq : m_actions) {
-        double prix = bourse.getPrix(aq.action, bourse.getDernierJour());
-        valeur += prix * aq.quantite;
-    }
-    return valeur;
+std::map<std::string, int> Portefeuille::getActions() const {
+    return actions;
 }

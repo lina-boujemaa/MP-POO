@@ -10,11 +10,14 @@ BourseMultiMap::BourseMultiMap(const std::multimap<Date, PrixJournalier>& prixJo
 std::multimap<Date, PrixJournalier> BourseMultiMap::getActionsDisponiblesAujourdhui(double prixmax) const
 {
     std::multimap<Date, PrixJournalier> actions;
-    for (const auto& pair : prixJournaliersMultiMap) {
+    std::multimap<Date, PrixJournalier>::const_iterator it;
+    for (it = prixJournaliersMultiMap.begin(); it != prixJournaliersMultiMap.end(); ++it) {
+        const std::pair<const Date, PrixJournalier>& pair = *it;
         const PrixJournalier& prix = pair.second;
-        if (prix.getDate() == aujourdhui && prix.getPrix() <= prixmax) {
+        if (prix.getDate() == getAujourdhui() && prix.getPrix() <= prixmax) {
             actions.insert(pair);
         }
     }
     return actions;
 }
+

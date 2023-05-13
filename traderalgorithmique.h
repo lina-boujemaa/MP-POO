@@ -17,3 +17,4 @@ private:
 };
 
 #endif // TRADERALGORITHMIQUE_H
+

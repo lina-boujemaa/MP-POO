@@ -1,18 +1,18 @@
-#include "bourseset.h"
-#include <algorithm>
+#ifndef BOURSESET_H
+#define BOURSESET_H
 
-BourseSet::BourseSet(const std::set<PrixJournalier>& prixJournaliers)
-    : Bourse(prixJournaliers), prixJournaliersSet(prixJournaliers)
-{
-}
+#include <set>
+#include <string>
+#include "bourse.h"
 
-std::set<std::string> BourseSet::getActionsDisponiblesAujourdhui(double prixmax) const
-{
-    std::set<std::string> actions;
-    for (const PrixJournalier& prix : prixJournaliersSet) {
-        if (prix.getDate() == getAujourdhui() && prix.getPrix() <= prixmax) {
-            actions.insert(prix.getNomAction());
-        }
-    }
-    return actions;
-}
+class BourseSet : public Bourse {
+public:
+    BourseSet(const std::set<PrixJournalier>& prixJournaliers);
+    std::set<std::string> getActionsDisponiblesAujourdhui(double prixmax) const;
+
+private:
+    std::set<PrixJournalier> prixJournaliersSet;
+};
+
+#endif // BOURSESET_H
+

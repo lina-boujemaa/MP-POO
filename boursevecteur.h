@@ -1,7 +1,7 @@
 #ifndef BOURSEVECTOR_H
 #define BOURSEVECTOR_H
 
-#include "Bourse.h"
+#include "bourse.h"
 
 class BourseVector : public Bourse {
 public:
@@ -15,3 +15,4 @@ private:
 };
 
 #endif
+

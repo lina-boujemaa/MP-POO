@@ -15,3 +15,4 @@ private:
 };
 
 #endif // BOURSESET_H
+

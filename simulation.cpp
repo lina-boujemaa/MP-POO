@@ -20,7 +20,7 @@ std::map<std::string, long> Simulation::executer(Bourse& bourse, Trader& trader,
 
     std::map<std::string, long> result;
     for (const auto& action : portefeuille.getActions()) {
-        result[action->getNom()] = action->getQuantite();
+        result[action.first] = action.second;
     }
     return result;
 }
@@ -33,19 +33,21 @@ void Simulation::executer(Bourse& bourse, Trader& trader, Portefeuille& portefeu
     int nbTransactions = 0;
 
     while (currentDate <= dateFin) {
-        std::vector<Action*> actions = bourse.getActionsDisponibles(currentDate, portefeuille.getSolde());
+        std::vector<std::string> actions = bourse.getActionsDisponiblesParDate(currentDate, portefeuille.getSolde());
 
         if (nbTransactions < 100) {
-            Transaction transaction = trader.choisirTransaction(bourse, portefeuille, actions, currentDate);
+            Transaction transaction = trader.choisirTransaction(bourse, portefeuille);
 
             portefeuille.executerTransaction(transaction, bourse, currentDate);
 
             nbTransactions++;
         }
 
-        currentDate = currentDate.suivant();
+        currentDate.suivant();
         nbTransactions = 0;
     }
 
-   // trader.setPortefeuille(portefeuille);
+    
 }
+
+

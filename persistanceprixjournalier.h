@@ -19,7 +19,7 @@ class PersistancePrixJournaliers
                 f>>entete;
                 while(!f.eof()){
                     PrixJournalier pj;
-                    f>>(pj);
+                    f >> (pj);
                     historique.push_back(pj);
                     nbLignes++;
                 }

@@ -47,5 +47,5 @@ void Simulation::executer(Bourse& bourse, Trader& trader, Portefeuille& portefeu
         nbTransactions = 0;
     }
 
-    trader.setPortefeuille(portefeuille);
+   // trader.setPortefeuille(portefeuille);
 }

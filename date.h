@@ -1,5 +1,5 @@
-#ifndef DATE_H
-#define DATE_H
+#ifndef DATE_H_INCLUDED
+#define DATE_H_INCLUDED
 
 #include <iostream>
 #include <string>
@@ -12,6 +12,7 @@ public:
     int getAnnee() const;
     bool operator==(const Date& autre) const;
     void incrementer();
+    void suivant();
 
     friend std::ostream& operator<<(std::ostream& os, const Date& date);
     friend std::istream& operator>>(std::istream& is, Date& date);
@@ -25,4 +26,4 @@ private:
 };
 
 
-#endif
+#endif // DATE_H_INCLUDED

@@ -3,12 +3,12 @@
 
 #include <set>
 #include <string>
-#include "Bourse.h"
+#include "bourse.h"
 
 class BourseSet : public Bourse {
 public:
     BourseSet(const std::set<PrixJournalier>& prixJournaliers);
-    std::set<std::string> getActionsDisponiblesAujourdhui(double prixmax) const ;
+    std::set<std::string> getActionsDisponiblesAujourdhui(double prixmax) const;
 
 private:
     std::set<PrixJournalier> prixJournaliersSet;

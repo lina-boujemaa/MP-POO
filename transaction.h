@@ -2,17 +2,17 @@
 #define TRANSACTION_H
 
 #include <string>
+
 enum class TypeTransaction { ACHAT, VENTE, RIEN };
 
 class Transaction {
 public:
-    Transaction(TypeTransaction type, std::string nom, double prix, int quantite)
-        : type(type), nom(nom), prix(prix), quantite(quantite) {}
+    Transaction(TypeTransaction type, std::string nom, double prix, int quantite);
 
-    TypeTransaction getType() const { return type; }
-    std::string getNom() const { return nom; }
-    double getPrix() const { return prix; }
-    int getQuantite() const { return quantite; }
+    TypeTransaction getType() const;
+    std::string getNom() const;
+    double getPrix() const;
+    int getQuantite() const;
 
 private:
     TypeTransaction type;

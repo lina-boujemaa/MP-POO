@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1683848855 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.cpp
+1683974227 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.cpp
 	"date.h"
 
-1683848783 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.h
+1683974762 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.h
 	<iostream>
 	<string>
 
@@ -31,4 +31,10 @@
 	<vector>
 	<string>
 	"PrixJournalier.h"
+
+1683975114 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\transaction.cpp
+	"transaction.h"
+
+1683975103 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\transaction.h
+	<string>
 

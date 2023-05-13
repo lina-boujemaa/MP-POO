@@ -20,7 +20,7 @@ int main() {
     TraderAleatoire trader(soldeInitial);
 
 
-    Bourse bourse;
+    BourseVector bourse;
 
     for (const auto& prix : historique) {
         bourse.ajouterPrixJournalier(prix);

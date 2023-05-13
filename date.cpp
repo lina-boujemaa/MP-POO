@@ -40,6 +40,19 @@ std::istream& operator>>(std::istream& is, Date& date)
     }
     return is;
 }
+void Date::suivant() {
+    jour++;
+
+    if (jour > joursDansMois(mois, annee)) {
+        jour = 1;
+        mois++;
+
+        if (mois > 12) {
+            mois = 1;
+            annee++;
+        }
+    }
+}
 
 void Date::incrementer()
 {

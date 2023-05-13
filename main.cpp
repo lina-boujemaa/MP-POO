@@ -9,7 +9,7 @@
 
 int main() {
 
-    std::string cheminFichier = "prices_simple.csy";
+    std::string cheminFichier = "prices_simple.csv";
     std::vector<PrixJournalier> historique = PersistancePrixJournaliers::lirePrixJournaliersDUnFichier(cheminFichier);
 
 
@@ -41,3 +41,4 @@ int main() {
 
     return 0;
 }
+

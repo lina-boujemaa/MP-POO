@@ -1,4 +1,4 @@
-#include "PrixJournalier.h"
+#include "prixjournalier.h"
 
 PrixJournalier::PrixJournalier() : nomAction(""), date(Date(1,1,1970)), prix(0.0) {}
 
@@ -19,3 +19,4 @@ Date PrixJournalier::getDate() const {
 double PrixJournalier::getPrix() const {
     return prix;
 }
+

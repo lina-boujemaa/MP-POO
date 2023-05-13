@@ -10,3 +10,4 @@ std::string Transaction::getNom() const { return nom; }
 double Transaction::getPrix() const { return prix; }
 
 int Transaction::getQuantite() const { return quantite; }
+

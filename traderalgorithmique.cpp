@@ -45,3 +45,4 @@ Transaction TraderAleatoire::choisirTransaction(const Bourse& bourse, const Port
 
     transactionsParJour++;
 }
+

@@ -44,3 +44,4 @@ int Portefeuille::getQuantite(const std::string& nomAction) const {
 std::map<std::string, int> Portefeuille::getActions() const {
     return actions;
 }
+

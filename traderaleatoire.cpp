@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <iterator> // Include the <iterator> header for std::next
 
 class TraderAleatoire : public Trader {
 public:
@@ -41,9 +42,10 @@ Transaction TraderAleatoire::choisirTransaction(const Bourse& bourse, const Port
     } else {
         auto actions = portefeuille.getActions();
         int randomIndex = std::rand() % actions.size();
-        std::string action = actions[randomIndex]->getNom();
+        auto it = std::next(std::begin(actions), randomIndex);
+        std::string action = it->first;
+        int quantite = it->second;
         double prix = bourse.getPrixActionParDate(action, bourse.getAujourdhui())->getPrix();
-        int quantite = portefeuille.getQuantite(action);
         if (std::rand() % 2 == 0) {
             return Transaction(TypeTransaction::VENTE, action, prix, quantite);
         } else {
@@ -55,3 +57,4 @@ Transaction TraderAleatoire::choisirTransaction(const Bourse& bourse, const Port
         }
     }
 }
+

@@ -3,10 +3,11 @@
 
 #include <vector>
 #include <string>
-#include "PrixJournalier.h"
+#include "Prixjournalier.h"
 
 class Bourse {
 public:
+
     Bourse(const std::vector<PrixJournalier>& prixJournaliers);
     Date getAujourdhui() const { return aujourdhui; }
     void setAujourdhui(Date jour) { aujourdhui = jour; }
@@ -19,3 +20,4 @@ protected:
 };
 
 #endif
+

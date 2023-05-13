@@ -5,34 +5,37 @@ Date::Date(int jour, int mois, int annee)
 {
 }
 
-int Date::getJour() const
-{
+int Date::getJour() const {
     return jour;
 }
 
-int Date::getMois() const
-{
+int Date::getMois() const {
     return mois;
 }
 
-int Date::getAnnee() const
-{
-    return  annee;
+int Date::getAnnee() const {
+    return annee;
 }
 
-bool Date::operator==(const Date& autre) const
-{
-    return jour == autre.jour && mois == autre.mois && annee == autre.annee;
+bool Date::operator<(const Date& autre) const {
+    if (annee < autre.annee) {
+        return true;
+    } else if (annee == autre.annee) {
+        if (mois < autre.mois) {
+            return true;
+        } else if (mois == autre.mois) {
+            return jour < autre.jour;
+        }
+    }
+    return false;
 }
 
-std::ostream& operator<<(std::ostream& os, const Date& date)
-{
+std::ostream& operator<<(std::ostream& os, const Date& date) {
     os << date.jour << "/" << date.mois << "/" << date.annee;
     return os;
 }
 
-std::istream& operator>>(std::istream& is, Date& date)
-{
+std::istream& operator>>(std::istream& is, Date& date) {
     char sep1, sep2;
     is >> date.jour >> sep1 >> date.mois >> sep2 >> date.annee;
     if (sep1 != '/' || sep2 != '/') {
@@ -40,6 +43,7 @@ std::istream& operator>>(std::istream& is, Date& date)
     }
     return is;
 }
+
 void Date::suivant() {
     jour++;
 
@@ -54,46 +58,39 @@ void Date::suivant() {
     }
 }
 
-void Date::incrementer()
-{
+void Date::incrementer() {
     int maxi = joursDansMois(mois, annee);
 
     if (jour < maxi) {
         ++jour;
-    }
-    else {
+    } else {
         jour = 1;
         if (mois < 12) {
             ++mois;
-        }
-        else {
+        } else {
             mois = 1;
             ++annee;
         }
     }
 }
 
-
-bool Date::estBissextile(int annee)
-{
+bool Date::estBissextile(int annee) {
     return (annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0);
 }
 
-int Date::joursDansMois(int mois, int annee)
-{
+int Date::joursDansMois(int mois, int annee) {
     int jours = 31;
 
     if (mois == 2) {
         if (estBissextile(annee)) {
             jours = 29;
-        }
-        else {
+        } else {
             jours = 28;
         }
-    }
-    else if (mois == 4 || mois == 6 || mois == 9 || mois == 11) {
+    } else if (mois == 4 || mois == 6 || mois == 9 || mois == 11) {
         jours = 30;
     }
 
     return jours;
 }
+

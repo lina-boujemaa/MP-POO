@@ -6,11 +6,14 @@
 
 class Date {
 public:
+    Date();
     Date(int jour, int mois, int annee);
     int getJour() const;
     int getMois() const;
     int getAnnee() const;
     bool operator==(const Date& autre) const;
+    bool operator<(const Date& autre) const; // Added < operator overload
+
     void incrementer();
     void suivant();
 
@@ -25,5 +28,5 @@ private:
     static bool estBissextile(int annee);
 };
 
-
 #endif // DATE_H_INCLUDED
+

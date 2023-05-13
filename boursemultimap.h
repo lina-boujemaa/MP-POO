@@ -9,7 +9,7 @@ class BourseMultiMap : public Bourse {
 public:
     BourseMultiMap(const std::multimap<Date, PrixJournalier>& prixJournaliers);
 
-    std::multimap<Date, PrixJournalier> getActionsDisponiblesAujourdhui(double prixmax) const override;
+    std::multimap<Date, PrixJournalier> getActionsDisponiblesAujourdhui(double prixmax) const ;
 
 private:
     std::multimap<Date, PrixJournalier> prixJournaliersMultiMap;

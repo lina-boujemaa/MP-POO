@@ -1,40 +1,118 @@
 # depslib dependency file v1.0
-1683974227 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.cpp
+1684010899 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.cpp
 	"date.h"
 
-1683974762 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.h
+1684010899 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\date.h
 	<iostream>
 	<string>
 
-1683838125 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.cpp
-	"PrixJournalier.h"
+1684062791 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.cpp
+	"prixjournalier.h"
 
-1683923483 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.h
-	"Date.h"
+1684062793 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.h
+	"date.h"
 	<string>
+	<istream>
 
-1683847832 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\portefeuille.cpp
+1684013387 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\portefeuille.cpp
 	"portefeuille.h"
 
-1683923531 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\portefeuille.h
+1684013407 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\portefeuille.h
 	<map>
 	<string>
 
-1683849083 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bourse.cpp
+1684057402 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bourse.cpp
 	"boursevecteur.h"
 	<algorithm>
 
-1683835444 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\boursevecteur.h
-	"Bourse.h"
+1684057441 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\boursevecteur.h
+	"bourse.h"
 
-1683835266 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bourse.h
+1684010899 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bourse.h
 	<vector>
 	<string>
-	"PrixJournalier.h"
+	"Prixjournalier.h"
 
-1683975114 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\transaction.cpp
+1684010899 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\transaction.cpp
 	"transaction.h"
 
-1683975103 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\transaction.h
+1684010899 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\transaction.h
 	<string>
+
+1684012159 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bourseset.cpp
+	"bourseset.h"
+
+1684010899 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\traderaleatoire.cpp
+	"trader.h"
+	"bourse.h"
+	"portefeuille.h"
+	<cstdlib>
+	<ctime>
+	<string>
+	<iterator>
+
+1684010899 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\trader.h
+	"transaction.h"
+	"bourse.h"
+	"portefeuille.h"
+
+1684010899 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bourseset.h
+	<set>
+	<string>
+	"bourse.h"
+
+1683643381 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\persistanceprixjournalier.cpp
+	"persistanceprixjournalier.h"
+	"Date.h"
+	<vector>
+	<iostream>
+	<fstream>
+
+1684012744 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\persistanceprixjournalier.h
+	<string>
+	"prixjournalier.h"
+	<vector>
+	<fstream>
+	"PrixJournalier.h"
+
+1684013931 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\simulation.cpp
+	"boursevecteur.h"
+	"trader.h"
+	"portefeuille.h"
+	"date.h"
+	<map>
+
+1684059688 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\main.cpp
+	"boursevecteur.h"
+	"traderaleatoire.h"
+	"portefeuille.h"
+	"simulation.h"
+	"date.h"
+	"persistanceprixjournalier.h"
+	<iostream>
+	"prixjournalier.h"
+
+1684060514 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\traderaleatoire.h
+	"trader.h"
+	"bourse.h"
+	"portefeuille.h"
+
+1684013869 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\simulation.h
+	"boursevecteur.h"
+	"trader.h"
+	"portefeuille.h"
+	"date.h"
+	<map>
+
+1684062488 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\traderalgorithmique.cpp
+	"traderalgorithmique.h"
+	"bourse.h"
+	"portefeuille.h"
+	<cstdlib>
+	<ctime>
+
+1684061617 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\traderalgorithmique.h
+	"trader.h"
+	"boursevecteur.h"
+	"portefeuille.h"
 

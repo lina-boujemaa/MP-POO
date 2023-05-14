@@ -20,15 +20,7 @@ private:
     Date date;
     double prix;
 };
-std::istream& operator>>(std::istream& is, PrixJournalier& prixJournalier) {
-    std::string nomAction;
-    Date date;
-    double prix;
-    is >> nomAction >> date >> prix;
-    prixJournalier = PrixJournalier(nomAction, date, prix);
-    return is;
-}
+
+std::istream& operator>>(std::istream& is, PrixJournalier& prixJournalier);
 
 #endif
-
-

@@ -21,6 +21,10 @@ std::vector<std::string> BourseVector::getActionsDisponiblesParDate(const Date& 
     }
     return actions;
 }
+void BourseVector::ajouterPrixJournalier(const PrixJournalier& prix)
+{
+    prixJournaliers.push_back(prix);
+}
 
 std::vector<PrixJournalier> BourseVector::getPrixJournaliersParDate(const Date& date) const
 {

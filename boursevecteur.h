@@ -9,6 +9,7 @@ public:
     std::vector<std::string> getActionsDisponiblesParDate(const Date& date) const override;
     std::vector<PrixJournalier> getPrixJournaliersParDate(const Date& date) const override;
     PrixJournalier* getPrixActionParDate(std::string action, const Date& date) const override;
+    void ajouterPrixJournalier(const PrixJournalier& prix);
 
 private:
     std::vector<PrixJournalier> prixJournaliers;

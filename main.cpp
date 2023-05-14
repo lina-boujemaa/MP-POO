@@ -1,13 +1,14 @@
-#include "bourse.h"
-#include "trader.h"
+#include "boursevecteur.h"
 #include "traderaleatoire.h"
 #include "portefeuille.h"
 #include "simulation.h"
 #include "date.h"
 #include "persistanceprixjournalier.h"
 #include <iostream>
+#include "prixjournalier.h"
 
-int main() {
+int main()
+{
 
     std::string cheminFichier = "prices_simple.csv";
     std::vector<PrixJournalier> historique = PersistancePrixJournaliers::lirePrixJournaliersDUnFichier(cheminFichier);
@@ -19,8 +20,8 @@ int main() {
 
     TraderAleatoire trader(soldeInitial);
 
-
-    BourseVector bourse;
+    BourseVector bourse(historique);
+   // BourseVector bourse(historique);
 
     for (const auto& prix : historique) {
         bourse.ajouterPrixJournalier(prix);

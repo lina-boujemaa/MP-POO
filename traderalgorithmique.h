@@ -2,14 +2,14 @@
 #define TRADERALGORITHMIQUE_H
 
 #include "trader.h"
-#include "bourse.h"
+#include "boursevecteur.h"
 #include "portefeuille.h"
 
 class TraderAlgorithmique : public Trader {
 public:
     TraderAlgorithmique(double soldeInitial);
 
-    Transaction choisirTransaction(const Bourse& bourse, const Portefeuille& portefeuille) override;
+    Transaction choisirTransaction(const BourseVector& bourse, const Portefeuille& portefeuille) ;
 
 private:
     double soldeInitial;

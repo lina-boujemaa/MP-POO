@@ -1,6 +1,6 @@
 #include "portefeuille.h"
 
-Portefeuille::Portefeuille() : solde(0.0) {}
+Portefeuille::Portefeuille(double solde) : solde(0.0) {}
 
 void Portefeuille::setSolde(double solde) {
     this->solde = solde;

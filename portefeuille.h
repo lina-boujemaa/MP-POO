@@ -6,7 +6,7 @@
 
 class Portefeuille {
 public:
-    Portefeuille();
+    Portefeuille(double solde);
     void setSolde(double solde);
     double getSolde() const;
     void viderActions();

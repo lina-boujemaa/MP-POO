@@ -1,7 +1,7 @@
 #ifndef SIMULATION_H
 #define SIMULATION_H
 
-#include "bourse.h"
+#include "boursevecteur.h"
 #include "trader.h"
 #include "portefeuille.h"
 #include "date.h"
@@ -12,7 +12,7 @@ public:
     static std::map<std::string, long> executer(Bourse& bourse, Trader& trader, Date dateDebut, Date dateFin, double solde);
 
 private:
-    static void executer(Bourse& bourse, Trader& trader, Portefeuille& portefeuille, Date dateDebut, Date dateFin, double solde);
+    static void executer(BourseVector& bourse, Trader& trader, Portefeuille& portefeuille, Date dateDebut, Date dateFin, double solde);
 };
 
 #endif // SIMULATION_H

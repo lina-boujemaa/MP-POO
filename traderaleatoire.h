@@ -17,4 +17,3 @@ private:
 };
 
 #endif // TRADERALEATOIRE_H
-

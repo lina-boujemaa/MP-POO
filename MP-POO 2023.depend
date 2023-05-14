@@ -9,7 +9,7 @@
 1684062791 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.cpp
 	"prixjournalier.h"
 
-1684062793 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.h
+1684064987 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\prixjournalier.h
 	"date.h"
 	<string>
 	<istream>
@@ -115,4 +115,13 @@
 	"trader.h"
 	"boursevecteur.h"
 	"portefeuille.h"
+
+1684010899 source:c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\bousemultimap.cpp
+	"boursemultimap.h"
+	<algorithm>
+
+1684010899 c:\users\linab\desktop\mini projet\mini projet\mp-poo 2023\boursemultimap.h
+	<map>
+	<string>
+	"Bourse.h"
 

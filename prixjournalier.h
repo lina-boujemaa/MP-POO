@@ -9,6 +9,7 @@ class PrixJournalier {
 public:
     PrixJournalier();
     PrixJournalier(const std::string& nomAction, const Date& date, double prix);
+    PrixJournalier(const std::pair<const Date, PrixJournalier>& pair); // Added constructor
     std::string getNomAction() const;
     Date getDate() const;
     double getPrix() const;
